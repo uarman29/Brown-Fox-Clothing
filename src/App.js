@@ -1,7 +1,9 @@
 import React from 'react';
-import HomePageComponent from './pages/homepage/HomePageComponent';
 import { Route } from 'react-router-dom';
 import './App.css';
+
+import HomePageComponent from './pages/homepage/HomePageComponent';
+import ShopPageComponent from './pages/shop/ShopPageComponent';
 
 class App extends React.Component
 {
@@ -10,6 +12,7 @@ class App extends React.Component
         return(
             <div>
                 <Route exact path="/" component={HomePageComponent}/>
+                <Route path="/shop" component={ShopPageComponent} />
             </div>
         );
     }
