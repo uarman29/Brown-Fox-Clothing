@@ -1,7 +1,8 @@
 .group
 {
     position: relative;
-    margin: 45px 0;
+    margin: 10px 0;
+    width: 80%;
 }
 
 .group .form-input
@@ -10,7 +11,7 @@
     background-color: white;
     color: black;
     font-size: 18px;
-    padding: 10px 10px 10px 5px;
+    padding: 5px 5px 5px 5px;
     display: block;
     width: 100%;
     border: none;
