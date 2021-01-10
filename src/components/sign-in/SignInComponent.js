@@ -33,7 +33,7 @@ class SignInComponent extends React.Component
         {
             console.log(error);
         }
-        
+
         this.setState({email:'', password:''});
     }
 
@@ -52,7 +52,7 @@ class SignInComponent extends React.Component
 
                     <div className="buttons">
                         <CustomButtonComponent type="submit">Sign in</CustomButtonComponent>
-                        <CustomButtonComponent isGoogleSignIn onClick={signInWithGoogle} type="submit">Sign in with Google</CustomButtonComponent>
+                        <CustomButtonComponent isGoogleSignIn onClick={signInWithGoogle} type="button">Sign in with Google</CustomButtonComponent>
                     </div>
 
                 </form>

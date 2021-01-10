@@ -8,15 +8,12 @@ import HeaderComponent from './components/header/HeaderComponent';
 import SignInUpComponent from './pages/sign-in-up/SignInUpComponent';
 
 import { auth, createUserProfileDocument } from './firebase/firebase.util';
+import { connect } from 'react-redux';
+import { setCurrentUser } from './redux/actions';
 
 class App extends React.Component
 {
     unsubscribeFromAuth = null;
-    constructor()
-    {
-        super();
-        this.state = {currentUser: null};
-    }
 
     componentDidMount()
     {
@@ -26,12 +23,12 @@ class App extends React.Component
                 const userRef = await createUserProfileDocument(userAuth);
 
                 userRef.onSnapshot(snapShot =>{
-                    this.setState({currentUser: snapShot.data()});
+                    this.props.setCurrentUser(snapShot.data());
                 });
             }
             else
             {
-                this.setState({currentUser: null});
+                this.props.setCurrentUser(null);
             }
         });
     }
@@ -45,7 +42,7 @@ class App extends React.Component
     {
         return(
             <div>
-                <HeaderComponent currentUser={this.state.currentUser}/>
+                <HeaderComponent />
                 <hr />
                 <Switch>
                     <Route exact path="/" component={HomePageComponent}/>
@@ -57,4 +54,4 @@ class App extends React.Component
     }
 }
 
-export default App;
+export default connect(null, { setCurrentUser })(App);
