@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import logo from '../../assests/brown_fox_logo_circle.png';
+import CartIconComponent from '../cart-icon/CartIconComponent';
+import CartDropdownComponent from '../cart-dropdown/CartDropdownComponent';
 import { auth } from '../../firebase/firebase.util';
 import './HeaderComponent.css';
 
@@ -21,15 +23,16 @@ const HeaderComponent = (props) =>{
                     :
                     <Link className="option" to="/signIn">SIGN IN</Link>
                 }
+                <CartIconComponent />
             </div>
-
+            {props.cartDropdownHidden ? null : (<CartDropdownComponent/>)}
         </div>
     );
 };
 
 const mapStateToProps = (state) =>
 {
-    return { currentUser: state.user.currentUser };
+    return { cartDropdownHidden: state.cartDropdownHidden.hidden, currentUser: state.user.currentUser };
 };
 
 export default connect(mapStateToProps)(HeaderComponent);
