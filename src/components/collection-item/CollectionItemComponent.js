@@ -14,7 +14,7 @@ const CollectionItemComponent = (props) =>{
             />
             <div className="collection-footer">
                 <span className="name">{props.item.name}</span>
-                <span className="price">{props.item.price}</span>
+                <span className="price">${props.item.price}</span>
             </div>
             <CustomButtonComponent inverted onClick={() => props.addCartItem(props.item)}>Add to cart</CustomButtonComponent>
         </div>

@@ -11,7 +11,7 @@ const addItemToCart = (cartItems, itemToAdd) =>
         return cartItemsCopy.map(item => item.id === itemToAdd.id ? {...item, quantity: item.quantity + 1} : item);
     else
     {
-        cartItemsCopy.push({id: itemToAdd.id, itemDetails: itemToAdd, quantity: 1});
+        cartItemsCopy.push({...itemToAdd, quantity: 1});
         return cartItemsCopy;
     }
 }
