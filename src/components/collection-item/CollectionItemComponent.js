@@ -1,19 +1,24 @@
 import React from 'react';
-import './CollectionItemComponent.css';
+import { connect } from 'react-redux';
+import { addCartItem } from '../../redux/actions';
 
-const CollectionItemComponent = ({id, name, price, imageUrl}) =>{
+import './CollectionItemComponent.css';
+import CustomButtonComponent from '../custom-button/CustomButtonComponent';
+
+const CollectionItemComponent = (props) =>{
     return(
         <div className="collection-item">
             <div 
                 className="image"
-                style={{backgroundImage: `url(${imageUrl})`}}
+                style={{backgroundImage: `url(${props.item.imageUrl})`}}
             />
             <div className="collection-footer">
-                <span className="name">{name}</span>
-                <span className="price">{price}</span>
+                <span className="name">{props.item.name}</span>
+                <span className="price">{props.item.price}</span>
             </div>
+            <CustomButtonComponent inverted onClick={() => props.addCartItem(props.item)}>Add to cart</CustomButtonComponent>
         </div>
     );
 };
 
-export default CollectionItemComponent;
+export default connect(null, { addCartItem })(CollectionItemComponent);

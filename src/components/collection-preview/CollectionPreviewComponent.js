@@ -10,8 +10,8 @@ const CollectionPreviewComponent = ({title, items}) =>
     {
         return items
         .filter((item, idx) => idx < 4)
-        .map(({id, ...otherItemProps}) =>{
-            return <CollectionItemComponent key={id} {...otherItemProps} />;
+        .map((item) =>{
+            return <CollectionItemComponent key={item.id} item={item} />;
         });
     };
 
