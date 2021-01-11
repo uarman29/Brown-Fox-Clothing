@@ -6,10 +6,12 @@ import HomePageComponent from './pages/homepage/HomePageComponent';
 import ShopPageComponent from './pages/shop/ShopPageComponent';
 import HeaderComponent from './components/header/HeaderComponent';
 import SignInUpComponent from './pages/sign-in-up/SignInUpComponent';
+import CheckoutPageComponent from './pages/checkout/CheckoutPageComponent';
 
 import { auth, createUserProfileDocument } from './firebase/firebase.util';
 import { connect } from 'react-redux';
 import { setCurrentUser } from './redux/actions';
+import { selectCurrentUser } from './redux/selectors/userSelector';
 
 class App extends React.Component
 {
@@ -48,6 +50,7 @@ class App extends React.Component
                     <Route exact path="/" component={HomePageComponent}/>
                     <Route path="/shop" component={ShopPageComponent} />
                     <Route exact path="/signIn" render={() => this.props.currentUser ? (<Redirect to='/' />) : (<SignInUpComponent />)} />
+                    <CheckoutPageComponent exact path="/checkout" component={CheckoutPageComponent}/>
                 </Switch>
             </div>
         );
@@ -55,7 +58,7 @@ class App extends React.Component
 }
 
 const mapStateToProps = (state) =>{
-    return {currentUser: state.user.currentUser};
+    return {currentUser: selectCurrentUser(state)};
 }
 
 export default connect(mapStateToProps, { setCurrentUser })(App);

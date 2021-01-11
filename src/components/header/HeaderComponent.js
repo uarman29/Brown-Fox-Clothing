@@ -5,6 +5,9 @@ import { connect } from 'react-redux';
 import logo from '../../assests/brown_fox_logo_circle.png';
 import CartIconComponent from '../cart-icon/CartIconComponent';
 import CartDropdownComponent from '../cart-dropdown/CartDropdownComponent';
+import { selectCurrentUser } from '../../redux/selectors/userSelector';
+import { selectCartDropdownHidden } from '../../redux/selectors/cartDropdownSelector';
+
 import { auth } from '../../firebase/firebase.util';
 import './HeaderComponent.css';
 
@@ -32,7 +35,7 @@ const HeaderComponent = (props) =>{
 
 const mapStateToProps = (state) =>
 {
-    return { cartDropdownHidden: state.cartDropdownHidden.hidden, currentUser: state.user.currentUser };
+    return { cartDropdownHidden: selectCartDropdownHidden(state), currentUser: selectCurrentUser(state) };
 };
 
 export default connect(mapStateToProps)(HeaderComponent);
