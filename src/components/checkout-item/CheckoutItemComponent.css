@@ -25,3 +25,23 @@
 {
     width: 23%;
 }
+
+.checkout-item .quantity
+{
+    display: flex;
+}
+
+.checkout-item .quantity .arrow
+{
+    cursor: pointer;
+}
+
+.checkout-item .quantity .value
+{
+    margin: 0 10px;
+}
+
+.checkout-item .remove-button
+{
+    cursor: pointer;
+}

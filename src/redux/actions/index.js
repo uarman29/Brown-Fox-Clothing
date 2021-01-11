@@ -1,4 +1,4 @@
-import { ADD_ITEM, SET_CURRENT_USER, TOGGLE_CART_HIDDEN } from '../types';
+import { ADD_ITEM, CLEAR_ITEM_FROM_CART, REMOVE_ITEM, SET_CURRENT_USER, TOGGLE_CART_HIDDEN } from '../types';
 
 export const setCurrentUser = (user) => {
     return {
@@ -16,6 +16,22 @@ export const addCartItem = (item) =>
 {
     return {
         type: ADD_ITEM,
+        payload: item
+    }
+}
+
+export const removeCartItem = (item) =>
+{
+    return {
+        type: REMOVE_ITEM,
+        payload: item
+    }
+}
+
+export const clearItemFromCart = (item) =>
+{
+    return{
+        type: CLEAR_ITEM_FROM_CART,
         payload: item
     }
 }
