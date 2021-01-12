@@ -1,8 +1,9 @@
 .sign-in
 {
-    width: 35vw;
+    width: 80%;
     display: flex;
     flex-direction: column;
+    height: 100%;
 }
 
 .sign-in .title
@@ -14,6 +15,9 @@
 {
     display: flex;
     justify-content: space-between;
-    padding-left: 20px;
-    padding-right: 20px;
+}
+
+.sign-in-form
+{
+    width: 100%;
 }

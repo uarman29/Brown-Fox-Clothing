@@ -13,8 +13,8 @@ const CollectionItemComponent = (props) =>{
                 style={{backgroundImage: `url(${props.item.imageUrl})`}}
             />
             <div className="collection-footer">
-                <span className="name">{props.item.name}</span>
-                <span className="price">${props.item.price}</span>
+                <div className="name">{props.item.name}</div>
+                <div className="price">${props.item.price}</div>
             </div>
             <CustomButtonComponent inverted onClick={() => props.addCartItem(props.item)}>Add to cart</CustomButtonComponent>
         </div>

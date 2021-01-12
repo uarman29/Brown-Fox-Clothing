@@ -1,10 +1,12 @@
 .collection-item{
-    width: 22%;
+    width: 100%;
+    min-width: 300px;
     display: flex;
     flex-direction: column;
     height: 350px;
     align-items: center;
     position: relative;
+    padding-bottom: 10px;
 }
 
 .collection-item .image
@@ -23,12 +25,19 @@
     display: flex;
     justify-content: space-between;
     font-size: 18px;
+    margin-bottom: 10px;
 }
 
 .collection-item .collection-footer .name
 {
     width: 90%;
-    margin-bottom: 15px;
+}
+
+.collection-item .collection-footer .price
+{
+    width: 10%;
+    justify-content: right;
+    align-items: right;
 }
 
 .collection-item .custom-button
@@ -36,7 +45,7 @@
     width: 80%;
     opacity: .7;
     position: absolute;
-    top: 255px;
+    top: 225px;
     display: none;
 }
 
