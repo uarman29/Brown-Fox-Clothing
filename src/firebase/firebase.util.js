@@ -44,6 +44,25 @@ export const createUserProfileDocument = async (userAuth, additionalData) =>
     return userRef;
 }
 
+export const uploadShopData = async (shop_data) =>
+{
+    const collectionRef = firestore.collection("shop_data");
+    Object.keys(shop_data).forEach(key =>
+        {
+            const newDocRef = collectionRef.doc(key);
+            newDocRef.set(shop_data[key]);
+        });
+    return;
+}
+
+export const convertShopQuerySnapshotToObject = (querySnapshot) =>
+{
+    return querySnapshot.docs.reduce((accumulator, docSnapshot) => {
+        accumulator[docSnapshot.id] = docSnapshot.data();
+        return accumulator;
+    }, {});
+}
+
 firebase.initializeApp(firebaseConfig);
 
 export const auth = firebase.auth();

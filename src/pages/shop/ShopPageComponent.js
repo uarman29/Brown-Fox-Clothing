@@ -1,31 +1,32 @@
 import React from 'react';
-import {shop_data} from '../../shop_data';
+import { connect } from 'react-redux';
 import CollectionPreviewComponent from '../../components/collection-preview/CollectionPreviewComponent';
+import SpinnerComponent from '../../components/spinner/SpinnerComponent';
 
 class ShopPageComponent extends React.Component
 {
-    constructor(props)
-    {
-        super(props);
-        this.state = {collections: shop_data};
-    }
-
     renderCollections()
     {
-        return this.state.collections
-        .map(({id, ...otherCollectionProps}) =>{
-            return <CollectionPreviewComponent key={id} {...otherCollectionProps} />;
+        return Object.keys(this.props.shopData)
+        .map(key =>{
+            return <CollectionPreviewComponent key={this.props.shopData[key].id} {...this.props.shopData[key]} />;
         });
     }
 
     render()
     {
-        return(
+        return (this.props.isLoading ? (<SpinnerComponent />) :
+        (
             <div className="shop-page">
                 {this.renderCollections()}
             </div>
-        );
+        ));
     }
 }
 
-export default ShopPageComponent;
+const mapStateToProps = (state) =>
+{
+    return {isLoading:state.shop.isLoading, shopData: state.shop.data};
+};
+
+export default connect(mapStateToProps)(ShopPageComponent);

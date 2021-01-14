@@ -1,6 +1,7 @@
 import React from 'react';
 import CollectionItemComponent from '../../components/collection-item/CollectionItemComponent';
-import {shop_data} from '../../shop_data';
+import SpinnerComponent from '../../components/spinner/SpinnerComponent';
+import { connect } from 'react-redux';
 
 import './CollectionPageComponent.css';
 
@@ -8,20 +9,26 @@ const CollectionPageComponent = (props) =>
 {
     const renderItems = () =>
     {
-        const collection = shop_data.find(collection => collection.routeName === props.match.params.collectionId);
+        const collection = props.shopData[props.match.params.collectionId];
         return collection.items.map(item => {
             return <CollectionItemComponent key={item.id} item={item} />
         });
     }
 
-    return(
+    return (props.isLoading ? (<SpinnerComponent />) :
+    (
         <div className="collection-page">
             <h1>{props.match.params.collectionId.toUpperCase()}</h1>
             <div className="collection-item-list">
                 {renderItems()}
             </div>
         </div>
-    );
+    ));
 }
 
-export default CollectionPageComponent;
+const mapStateToProps = (state) =>
+{
+    return {isLoading: state.shop.isLoading, shopData: state.shop.data};
+};
+
+export default connect(mapStateToProps)(CollectionPageComponent);

@@ -10,7 +10,7 @@ import CheckoutPageComponent from './pages/checkout/CheckoutPageComponent';
 
 import { auth, createUserProfileDocument } from './firebase/firebase.util';
 import { connect } from 'react-redux';
-import { setCurrentUser } from './redux/actions';
+import { setCurrentUser, fetchShopData } from './redux/actions';
 import { selectCurrentUser } from './redux/selectors/userSelector';
 import CollectionPageComponent from './pages/collection-page/CollectionPageComponent';
 
@@ -20,6 +20,7 @@ class App extends React.Component
 
     componentDidMount()
     {
+        this.props.fetchShopData();
         this.unsubscribeFromAuth = auth.onAuthStateChanged( async userAuth => {
             if(userAuth)
             {
@@ -53,6 +54,7 @@ class App extends React.Component
                     <Route path="/shop" component={ShopPageComponent} />
                     <Route exact path="/signIn" render={() => this.props.currentUser ? (<Redirect to='/' />) : (<SignInUpComponent />)} />
                     <CheckoutPageComponent exact path="/checkout" component={CheckoutPageComponent}/>
+                    <Redirect to='/' />
                 </Switch>
             </div>
         );
@@ -63,4 +65,4 @@ const mapStateToProps = (state) =>{
     return {currentUser: selectCurrentUser(state)};
 }
 
-export default connect(mapStateToProps, { setCurrentUser })(App);
+export default connect(mapStateToProps, { setCurrentUser, fetchShopData })(App);
