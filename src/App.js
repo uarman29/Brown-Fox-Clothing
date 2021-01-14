@@ -10,7 +10,7 @@ import CheckoutPageComponent from './pages/checkout/CheckoutPageComponent';
 
 import { auth, createUserProfileDocument } from './firebase/firebase.util';
 import { connect } from 'react-redux';
-import { setCurrentUser, fetchShopData } from './redux/actions';
+import { setCurrentUser, fetchShopData, fetchCart, clearCart } from './redux/actions';
 import { selectCurrentUser } from './redux/selectors/userSelector';
 import CollectionPageComponent from './pages/collection-page/CollectionPageComponent';
 
@@ -22,12 +22,14 @@ class App extends React.Component
     {
         this.props.fetchShopData();
         this.unsubscribeFromAuth = auth.onAuthStateChanged( async userAuth => {
+            this.props.clearCart();
             if(userAuth)
             {
                 const userRef = await createUserProfileDocument(userAuth);
 
                 userRef.onSnapshot(snapShot =>{
                     this.props.setCurrentUser(snapShot.data());
+                    this.props.fetchCart();
                 });
             }
             else
@@ -65,4 +67,4 @@ const mapStateToProps = (state) =>{
     return {currentUser: selectCurrentUser(state)};
 }
 
-export default connect(mapStateToProps, { setCurrentUser, fetchShopData })(App);
+export default connect(mapStateToProps, { setCurrentUser, fetchShopData, fetchCart, clearCart })(App);

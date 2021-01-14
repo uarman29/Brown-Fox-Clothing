@@ -24,6 +24,7 @@ export const createUserProfileDocument = async (userAuth, additionalData) =>
     {
         const { displayName, email, uid } = userAuth;
         const createdAt = new Date();
+        const cart = [];
 
         try
         {
@@ -32,6 +33,7 @@ export const createUserProfileDocument = async (userAuth, additionalData) =>
                 displayName,
                 email,
                 createdAt,
+                cart,
                 ...additionalData
             });
         }

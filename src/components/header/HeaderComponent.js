@@ -19,7 +19,6 @@ const HeaderComponent = (props) =>{
             </Link>
             <div className="options">
                 <Link className="option" to="/shop">SHOP</Link>
-                <Link className="option" to="/shop">CONTACT</Link>
                 {
                     props.currentUser ? 
                     <div className="option" onClick={() => auth.signOut()}>SIGN OUT</div>

@@ -31,7 +31,7 @@ class SignInComponent extends React.Component
         }
         catch(error)
         {
-            console.log(error);
+            alert(error.message);
         }
 
         this.setState({email:'', password:''});

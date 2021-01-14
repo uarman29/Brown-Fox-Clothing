@@ -8,13 +8,14 @@ import './DirectoryComponent.css';
 class DirectoryComponent extends React.Component
 {
     renderSections()
-    {
-        return Object.values(this.props.shopData).map((section) =>{
+    {   const renderOrder = ['hats', 'jackets', 'sneakers','womens', 'mens'];
+        return renderOrder.map((currentCollectionToRender) =>{
+            const section = this.props.shopData[currentCollectionToRender];
             return <MenuItemComponent 
                         key={section.id} 
                         title={section.title.toUpperCase()} 
                         imageUrl={section.imageUrl} 
-                        size={section.size}
+                        size='large'
                         linkUrl = {section.id}
                     />
         });

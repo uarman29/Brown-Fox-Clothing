@@ -10,6 +10,19 @@
 {
     font-size: 28px;
     margin-bottom: 25px;
+    cursor: pointer;
+    font-style: italic;
+}
+
+.collection-preview .collection-see-more
+{
+    display: block;
+    align-items: right;
+    justify-content: right;
+    float: right;
+    font-size: 22px;
+    font-style: italic;
+    cursor: pointer;
 }
 
 .collection-preview .preview

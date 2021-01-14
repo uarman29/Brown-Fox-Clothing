@@ -6,3 +6,5 @@ export const REMOVE_ITEM = 'REMOVE_ITEM';
 export const START_DATA_FETCH = 'START_DATA_FETCH';
 export const DATA_FETCH_SUCCESS = 'DATA_FETCH_SUCCESS';
 export const DATA_FETCH_FAIL = 'DATA_FETCH_FAIL';
+export const FETCH_CART = 'FETCH_CART';
+export const CLEAR_CART = 'CLEAR_CART';
