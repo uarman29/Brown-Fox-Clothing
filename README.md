@@ -1,6 +1,6 @@
 # NOTES
 
-**THIS PROJECT IS NO LONGER ACTIVE AND THE BACKEND DATABASE HAS BEEN TAKEN DOWN. PLEASE LOOK AT VERSION TWO AT:https://github.com/uarman29/Brown-Fox-Clothing-v2 **
+**THIS PROJECT IS NO LONGER ACTIVE AND THE BACKEND DATABASE HAS BEEN TAKEN DOWN. PLEASE LOOK AT VERSION TWO AT:https://github.com/uarman29/Brown-Fox-Clothing-v2**
 
 This project was developed as part of the udemy react course found here: https://www.udemy.com/course/complete-react-developer-zero-to-mastery/
 
