@@ -1,3 +1,7 @@
+# NOTES
+
+This project was developed as part of the udemy react course found here: https://www.udemy.com/course/complete-react-developer-zero-to-mastery/
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
